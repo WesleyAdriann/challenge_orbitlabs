@@ -3,13 +3,10 @@ import {View, Text} from 'react-native';
 
 import {Container} from './style';
 
-import Header from '../../components/Header';
-
-const Home = () => (
+const Header = () => (
   <Container>
-    <Header />
-    <Text>Home</Text>
+    <Text>Restaurants</Text>
   </Container>
 );
 
-export default Home;
+export default Header;
