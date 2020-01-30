@@ -1,11 +1,10 @@
 import React from 'react';
-import {Text} from 'react-native';
 
-import {Container} from './style';
+import {Container, Title} from './style';
 
 const Header = () => (
   <Container colors={['#D06600', '#E69A09']}>
-    <Text>Restaurants</Text>
+    <Title>Restaurantes</Title>
   </Container>
 );
 
