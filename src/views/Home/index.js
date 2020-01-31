@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Text} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
 import {Container, CategoriesContainer, RestaurantsContainer} from './style';
 
@@ -19,7 +19,7 @@ import {
 import Category from './Category';
 import Restaurant from './Restaurant';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const dispatch = useDispatch();
   const categories = useSelector(state => state.home.categories);
   const restaurants = useSelector(state => state.home.restaurants);
@@ -46,16 +46,18 @@ const Home = () => {
       </CategoriesContainer>
       <RestaurantsContainer>
         {restaurants.map(restaurant => (
-          <Restaurant
-            name={restaurant.name}
-            image={restaurant.image}
-            comment={restaurant.comment}
-            type={restaurant.type}
-            distance={restaurant.distance}
-            neigborhood={restaurant.neigborhood}
-            price={restaurant.price}
-            rating={restaurant.rating}
-          />
+          <TouchableOpacity onPress={() => navigation.push('Login')}>
+            <Restaurant
+              name={restaurant.name}
+              image={restaurant.image}
+              comment={restaurant.comment}
+              type={restaurant.type}
+              distance={restaurant.distance}
+              neigborhood={restaurant.neigborhood}
+              price={restaurant.price}
+              rating={restaurant.rating}
+            />
+          </TouchableOpacity>
         ))}
       </RestaurantsContainer>
     </Container>
