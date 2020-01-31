@@ -8,11 +8,10 @@ export const Container = styled(LinearGradient)`
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  /* align-items: space; */
 `;
 
 export const Title = styled.Text`
-  font-family: 'Roboto';
+  font-family: 'Roboto Regular';
   color: #fff;
   font-size: 26px;
 `;

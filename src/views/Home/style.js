@@ -23,5 +23,5 @@ export const CategoryItem = styled.ImageBackground`
 export const CategoryText = styled.Text`
   color: #fff;
   font-size: 13px;
-  font-family: 'Roboto'
+  font-family: 'Roboto Regular';
 `;
