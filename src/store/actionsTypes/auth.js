@@ -1,3 +1,3 @@
 export default {
-
+  SETINPUTSVALUESAUTH: 'SET_INPUT_VALUES_AUTH',
 };

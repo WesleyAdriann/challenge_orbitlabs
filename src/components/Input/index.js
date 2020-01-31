@@ -3,7 +3,7 @@ import {View, Text} from 'react-native';
 
 import {Label, InputStyled, InputStyledMask} from './style';
 
-const Input = ({label, onChange, placeholder, value, phoneMask = false}) => (
+const Input = ({label, onChange, placeholder, value, secureTextEntry = false, phoneMask = false}) => (
   <View>
     <Label>{label}</Label>
     {phoneMask ? (
@@ -22,6 +22,7 @@ const Input = ({label, onChange, placeholder, value, phoneMask = false}) => (
         placeholder={placeholder}
         value={value}
         onChangeText={onChange}
+        secureTextEntry={secureTextEntry}
       />
     )}
   </View>
