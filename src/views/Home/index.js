@@ -39,15 +39,24 @@ const Home = () => {
     <Container>
       <Loading isLoading={isLoading} />
       <Header />
-      <CategoriesContainer horizontal>
+      <CategoriesContainer horizontal showsHorizontalScrollIndicator={false}>
         {categories.map(category => (
           <Category name={category.name} image={category.image} />
         ))}
       </CategoriesContainer>
       <RestaurantsContainer>
-        {
-          restaurants.map(restaurant => <Restaurant name={restaurant.name}/>)
-        }
+        {restaurants.map(restaurant => (
+          <Restaurant
+            name={restaurant.name}
+            image={restaurant.image}
+            comment={restaurant.comment}
+            type={restaurant.type}
+            distance={restaurant.distance}
+            neigborhood={restaurant.neigborhood}
+            price={restaurant.price}
+            rating={restaurant.rating}
+          />
+        ))}
       </RestaurantsContainer>
     </Container>
   );
