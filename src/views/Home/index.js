@@ -2,11 +2,7 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Text} from 'react-native';
 
-import {
-  Container,
-  CategoriesContainer,
-  RestaurantsContainer,
-} from './style';
+import {Container, CategoriesContainer, RestaurantsContainer} from './style';
 
 import Header from '../../components/Header';
 import Loading from '../../components/Loading';
@@ -21,6 +17,7 @@ import {
 } from '../../store/actions/home';
 
 import Category from './Category';
+import Restaurant from './Restaurant';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -49,7 +46,7 @@ const Home = () => {
       </CategoriesContainer>
       <RestaurantsContainer>
         {
-          restaurants.map(restaurant => <Text>{restaurant.name}</Text>)
+          restaurants.map(restaurant => <Restaurant name={restaurant.name}/>)
         }
       </RestaurantsContainer>
     </Container>
