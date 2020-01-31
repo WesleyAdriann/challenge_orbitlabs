@@ -26,9 +26,22 @@ export const RestaurantInformation = styled.View`
   flex-grow: 1;
 `;
 
+export const Informations = styled.View`
+  width: 60%;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
+export const InformationsText = styled(RestaurantText)`
+  width: 50%;
+  flex-grow: 1;
+  margin: 5px 0;
+  font-size: 12px;
+`;
+
 export const RestaurantImage = styled.Image`
-  height: 80px;
   width: 100px;
+  height: 80px;
   margin-right: 10px;
 `;
 

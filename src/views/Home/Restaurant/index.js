@@ -7,6 +7,8 @@ import {
   Row,
   RestaurantText,
   RestaurantInformation,
+  Informations,
+  InformationsText,
   RatingIcon,
   RatingText,
 } from './style';
@@ -15,7 +17,8 @@ import {imagesRestaurants} from '../../../utils/images';
 
 const distanceConverter = distance => {
   if (distance >= 1000) {
-    return `${distance / 1000} km`;
+    const distanceKm = (distance / 1000).toString().replace('.', ',');
+    return `${distanceKm} km`;
   }
   return `${distance} m`;
 };
@@ -37,15 +40,22 @@ const Restaurant = ({name, image, comment, type, price, distance, neigborhood, r
       <RestaurantImage source={imagesRestaurants[image]} resizeMethod="scale" />
       <RestaurantInformation>
         <RestaurantTitle>{name}</RestaurantTitle>
-        <RestaurantText>{type}</RestaurantText>
-        <RestaurantText>{price}</RestaurantText>
-        <RestaurantText>
-          {distanceConverter(parseInt(distance, 10))}
-        </RestaurantText>
-        <RestaurantText>{neigborhood}</RestaurantText>
+        <Informations>
+          <InformationsText>{type}</InformationsText>
+          <InformationsText>{'$'.repeat(price)}</InformationsText>
+          <InformationsText>
+            {distanceConverter(parseInt(distance, 10))}
+          </InformationsText>
+          <InformationsText>{neigborhood}</InformationsText>
+        </Informations>
       </RestaurantInformation>
       <RatingIcon rating={ratingColor(parseFloat(rating))}>
-        <RatingText>{rating}</RatingText>
+        <RatingText>
+          {parseFloat(rating)
+            .toFixed(1)
+            .toString()
+            .replace('.', ',')}
+        </RatingText>
       </RatingIcon>
     </Row>
     <Row>

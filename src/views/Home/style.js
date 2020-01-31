@@ -18,4 +18,5 @@ export const CategoriesContainer = styled.ScrollView`
 
 export const RestaurantsContainer = styled.ScrollView`
   flex-grow: 1;
+  margin-bottom: 20px;
 `;
