@@ -2,7 +2,13 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Text} from 'react-native';
 
-import {Container} from './style';
+import {
+  Container,
+  CategoriesContainer,
+  CategoryItem,
+  CategoryOverlay,
+  CategoryText,
+} from './style';
 
 import Header from '../../components/Header';
 import Loading from '../../components/Loading';
@@ -15,6 +21,8 @@ import {
   setRestaurants,
   handleLoading,
 } from '../../store/actions/home';
+
+import {imagesCategories} from '../../utils/images';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -36,7 +44,15 @@ const Home = () => {
     <Container>
       <Loading isLoading={isLoading} />
       <Header />
-      <Text>Home</Text>
+      <CategoriesContainer horizontal>
+        {
+          categories.map(category => (
+            <CategoryItem source={imagesCategories[category.image]}>
+              <CategoryText>{category.name}</CategoryText>
+            </CategoryItem>
+          ))
+        }
+      </CategoriesContainer>
     </Container>
   );
 };
