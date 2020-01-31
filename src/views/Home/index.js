@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {Text} from 'react-native';
 
 import {
   Container,
   CategoriesContainer,
-  CategoryItem,
-  CategoryText,
+  RestaurantsContainer,
 } from './style';
 
 import Header from '../../components/Header';
@@ -47,6 +47,11 @@ const Home = () => {
           <Category name={category.name} image={category.image} />
         ))}
       </CategoriesContainer>
+      <RestaurantsContainer>
+        {
+          restaurants.map(restaurant => <Text>{restaurant.name}</Text>)
+        }
+      </RestaurantsContainer>
     </Container>
   );
 };

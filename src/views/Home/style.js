@@ -9,7 +9,10 @@ export const Container = styled.View`
 `;
 
 export const CategoriesContainer = styled.ScrollView`
-  width: 100%;
-  height: 160px;
   margin-top: 5px;
+  flex-grow: 0;
+`;
+
+export const RestaurantsContainer = styled.ScrollView`
+  flex-grow: 1;
 `;
