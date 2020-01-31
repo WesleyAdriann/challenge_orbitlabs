@@ -4,12 +4,11 @@ import {Text} from 'react-native';
 import {Container} from './style';
 
 import Header from '../../components/Header';
-
-import data from '../../utils/restaurants.json';
+import Loading from '../../components/Loading';
 
 const Home = () => (
   <Container>
-    {console.log(data.categories)}
+    <Loading status />
     <Header />
     <Text>Home</Text>
   </Container>
