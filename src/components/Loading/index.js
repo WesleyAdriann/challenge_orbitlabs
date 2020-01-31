@@ -3,9 +3,9 @@ import {View, ActivityIndicator} from 'react-native';
 
 import {Container, Text} from './style';
 
-const LoadingFullScreen = ({status, message = ''}) => (
+const LoadingFullScreen = ({isLoading, message = ''}) => (
   <View>
-    {status ? (
+    {isLoading ? (
       <Container>
         <ActivityIndicator size="large" color="#E69A09" />
         <Text>{message}</Text>

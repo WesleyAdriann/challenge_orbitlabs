@@ -1,4 +1,4 @@
-import actionsTypes from '../../actions/auth';
+import actionsTypes from '../../actionsTypes/auth';
 
 const INITIAL_STATE = {
 
