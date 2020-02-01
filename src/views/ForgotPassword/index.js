@@ -76,13 +76,12 @@ const ForgotPassword = ({navigation}) => {
         .then(() => {
           dispatch(setUsers(newUsers));
           dispatch(clearInputs());
-          Alert.alert('Sucesso', 'Sua senha foi alterada com sucesso', 
-          [
+          Alert.alert('Sucesso', 'Sua senha foi alterada com sucesso', [
             {
               text: 'Ok',
               onPress: () => navigation.push('Login'),
-            }
-          ])
+            },
+          ]);
         })
         .catch(() => {
           Alert.alert(
