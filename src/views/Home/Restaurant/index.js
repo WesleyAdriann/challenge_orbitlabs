@@ -1,8 +1,10 @@
 import React from 'react';
+import {View} from 'react-native';
 
 import {
   RestaurantItem,
   RestaurantTitle,
+  RestaurantTitleText,
   RestaurantImage,
   Row,
   RestaurantText,
@@ -39,10 +41,14 @@ const Restaurant = ({name, image, comment, type, price, distance, neigborhood, r
     <Row>
       <RestaurantImage source={imagesRestaurants[image]} resizeMethod="scale" />
       <RestaurantInformation>
-        <RestaurantTitle>{name}</RestaurantTitle>
+        <RestaurantTitle>
+          <RestaurantTitleText>{name}</RestaurantTitleText>
+        </RestaurantTitle>
         <Informations>
           <InformationsText>{type}</InformationsText>
           <InformationsText>{'$'.repeat(price)}</InformationsText>
+        </Informations>
+        <Informations>
           <InformationsText>
             {distanceConverter(parseInt(distance, 10))}
           </InformationsText>

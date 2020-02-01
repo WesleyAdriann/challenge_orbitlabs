@@ -94,7 +94,7 @@ const Login = ({navigation}) => {
         dispatch(setUsers(registeredUser));
       })
       .catch(err => {
-        if (err !== 'item not exist') {
+        if (err.message !== 'item not exist') {
           Alert.alert(
             'Erro',
             'Ops... ocorreu um erro ao carregar os usuarios, tente novamente',

@@ -12,9 +12,15 @@ export const Row = styled.View`
   justify-content: flex-start;
 `;
 
-export const RestaurantTitle = styled.Text`
+export const RestaurantTitle = styled.View`
+  flex-direction: row;
+`;
+
+export const RestaurantTitleText = styled.Text`
   color: #d06600;
   font-size: 20px;
+  flex: 1;
+  flex-wrap: wrap;
 `;
 
 export const RestaurantText = styled.Text`
@@ -27,13 +33,13 @@ export const RestaurantInformation = styled.View`
 `;
 
 export const Informations = styled.View`
-  width: 60%;
+  flex-grow: 1;
   flex-direction: row;
   flex-wrap: wrap;
 `;
 
 export const InformationsText = styled(RestaurantText)`
-  width: 50%;
+  width: 25%;
   flex-grow: 1;
   margin: 5px 0;
   font-size: 12px;
