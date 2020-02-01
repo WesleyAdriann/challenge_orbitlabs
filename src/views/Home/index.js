@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {TouchableOpacity} from 'react-native';
+import {TouchableOpacity, Alert} from 'react-native';
 
 import {Container, CategoriesContainer, RestaurantsContainer} from './style';
 
@@ -14,6 +14,7 @@ import {
   setCategories,
   setRestaurants,
   handleLoading,
+  setUser,
 } from '../../store/actions/home';
 
 import Category from './Category';
@@ -24,6 +25,24 @@ const Home = ({navigation}) => {
   const categories = useSelector(state => state.home.categories);
   const restaurants = useSelector(state => state.home.restaurants);
   const isLoading = useSelector(state => state.home.isLoading);
+  const user = useSelector(state => state.home.user);
+
+  const handleRestaurantClick = () => {
+    if (user.name) {
+      Alert.alert('', `Você ja esta logado ${user.name}`, [
+        {text: 'Ok'},
+        {
+          text: 'Sair',
+          onPress: () => {
+            dispatch(setUser({}));
+            navigation.push('Login');
+          },
+        },
+      ]);
+    } else {
+      navigation.push('Login');
+    }
+  };
 
   useEffect(() => {
     dispatch(handleLoading(true));
@@ -51,7 +70,7 @@ const Home = ({navigation}) => {
       <RestaurantsContainer>
         {restaurants.map(restaurant => (
           <TouchableOpacity
-            onPress={() => navigation.push('Login')}
+            onPress={handleRestaurantClick}
             key={restaurant.name}
           >
             <Restaurant

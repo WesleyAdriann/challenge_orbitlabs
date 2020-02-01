@@ -3,6 +3,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 
 import Login from './views/Login';
 import Register from './views/Register';
+import ForgotPassword from './views/ForgotPassword';
 
 import Home from './views/Home';
 
@@ -18,6 +19,13 @@ const AuthStack = createStackNavigator(
     Register: {
       screen: Register,
       path: 'Register',
+      navigationOptions: {
+        headerShown: false,
+      },
+    },
+    ForgotPassword: {
+      screen: ForgotPassword,
+      path: 'ForgotPassword',
       navigationOptions: {
         headerShown: false,
       },
@@ -45,11 +53,11 @@ const AppStack = createStackNavigator(
 
 const Routes = createSwitchNavigator(
   {
-    AuthStack,
     AppStack,
+    AuthStack,
   },
   {
-    initialRouteName: 'AppStack',
+    initialRouteName: 'AuthStack',
   },
 );
 

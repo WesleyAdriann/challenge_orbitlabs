@@ -7,6 +7,8 @@ import {
   Container,
   TitleContainer,
   TitleText,
+  ForgotPassword,
+  ForgotPasswordText,
   ButtonsContainer,
   RegisterText,
 } from './style';
@@ -15,7 +17,8 @@ import Input from '../../components/Input';
 import Loading from '../../components/Loading';
 
 import {validEmail} from '../../utils/validEmail';
-import {handleChange, handleLoading, setUsers} from '../../store/actions/auth';
+import {handleChange, handleLoading, setUsers, clearInputs} from '../../store/actions/auth';
+import {setUser} from '../../store/actions/home';
 import {getItem} from '../../services/storage';
 
 const Login = ({navigation}) => {
@@ -74,6 +77,8 @@ const Login = ({navigation}) => {
       ]);
     }
     if (usedEmail.password === user.password) {
+      dispatch(setUser(usedEmail));
+      dispatch(clearInputs());
       Alert.alert('Bem-Vindo', `Bem-Vindo ${usedEmail.name}`, [
         {text: 'Ok', onPress: () => navigation.push('Home')},
       ]);
@@ -82,6 +87,7 @@ const Login = ({navigation}) => {
         {text: 'Ok'},
         {
           text: 'Recuperar senha',
+          onPress: () => navigation.push('ForgotPassword'),
         },
       ]);
     }
@@ -127,6 +133,9 @@ const Login = ({navigation}) => {
             secureTextEntry={input.secureTextEntry}
           />
         ))}
+        <ForgotPassword onPress={() => navigation.push('ForgotPassword')}>
+          <ForgotPasswordText>ESQUECI MINHA SENHA</ForgotPasswordText>
+        </ForgotPassword>
       </View>
       <ButtonsContainer>
         <Button title="Confirmar" color="#D06600" onPress={handleSubmit} />

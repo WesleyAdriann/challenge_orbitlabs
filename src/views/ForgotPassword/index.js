@@ -1,39 +1,22 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import {TouchableOpacity, Button, ScrollView, Alert} from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {TouchableOpacity, ScrollView, Button, Alert} from 'react-native';
 import FeatherIcons from 'react-native-vector-icons/Feather';
 
-import {Container, TitleContainer, TitleText, ButtonsContainer} from './style';
+import {handleChange, setUsers, clearInputs} from '../../store/actions/auth';
 
+import {Container, TitleText, TitleContainer, ButtonsContainer} from './style';
 import Input from '../../components/Input';
 
-import {handleChange, setUsers, clearInputs} from '../../store/actions/auth';
 import {validEmail} from '../../utils/validEmail';
 import {setItem} from '../../services/storage';
 
-const Register = ({navigation}) => {
+const ForgotPassword = ({navigation}) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user);
   const users = useSelector(state => state.auth.users);
 
   const inputs = [
-    {
-      label: 'Nome',
-      value: user.name,
-      placeholder: 'Digite seu nome',
-      onChange: text => dispatch(handleChange('name', text)),
-      test: user.name.match(/(\d+)/),
-      erroMessage: 'O campo Nome, não pode ter numeros',
-    },
-    {
-      label: 'Telefone',
-      value: user.phone,
-      placeholder: '(  )      -',
-      onChange: text => dispatch(handleChange('phone', text)),
-      phoneMask: true,
-      test: user.phone.length < 14,
-      erroMessage: 'Preencha seu telefone corretamente',
-    },
     {
       label: 'Email',
       value: user.email,
@@ -43,7 +26,7 @@ const Register = ({navigation}) => {
       erroMessage: 'O email informado é inválido',
     },
     {
-      label: 'Senha',
+      label: 'Nova Senha',
       value: user.password,
       placeholder: '*****',
       onChange: text => dispatch(handleChange('password', text)),
@@ -52,7 +35,7 @@ const Register = ({navigation}) => {
       erroMessage: 'Sua senha deve ter no minimo 6 caracteres',
     },
     {
-      label: 'Confirmar Senha',
+      label: 'Confirmar Nova Senha',
       value: user.confirmPassword,
       placeholder: '*****',
       onChange: text => dispatch(handleChange('confirmPassword', text)),
@@ -71,6 +54,7 @@ const Register = ({navigation}) => {
         [{text: 'Ok'}],
       );
     }
+
     const errors = inputs.filter(input => input.test).map(input => input.erroMessage);
     if (errors.length) {
       return Alert.alert(
@@ -79,43 +63,52 @@ const Register = ({navigation}) => {
         [{text: 'Ok'}],
       );
     }
-
-    const usedEmail = users.filter(registeredUser => registeredUser.email === user.email);
-    if (usedEmail.length) {
-      return Alert.alert('Erro', 'O email informado ja esta registrado.', [
+    const [usedEmail] = users.filter(registeredUser => registeredUser.email === user.email);
+    if (usedEmail) {
+      const newUsers = [...users];
+      const index = newUsers.indexOf(usedEmail);
+      newUsers[index] = {
+        ...newUsers[index],
+        password: user.password,
+        confirmPassword: user.confirmPassword,
+      };
+      setItem('users', newUsers)
+        .then(() => {
+          dispatch(setUsers(newUsers));
+          dispatch(clearInputs());
+          Alert.alert('Sucesso', 'Sua senha foi alterada com sucesso', 
+          [
+            {
+              text: 'Ok',
+              onPress: () => navigation.push('Login'),
+            }
+          ])
+        })
+        .catch(() => {
+          Alert.alert(
+            'Erro',
+            'Ops... Ocorreu um erro inesperado, tente novamente.',
+            [{text: 'Ok'}],
+          );
+        });
+    } else {
+      Alert.alert('', 'Email não registrado.', [
         {text: 'Ok'},
         {
-          text: 'Recuperar senha',
-          onPress: () => navigation.push('ForgotPassword'),
+          text: 'Me cadastrar',
+          onPress: () => navigation.push('Register'),
         },
       ]);
     }
-    const newUsers = [...users];
-    newUsers.push(user);
-    setItem('users', newUsers)
-      .then(() => {
-        dispatch(setUsers(newUsers));
-        dispatch(clearInputs());
-        Alert.alert('Sucesso', 'Você foi cadastrado com sucesso.', [
-          {text: 'Ok'},
-        ]);
-      })
-      .catch(() => {
-        Alert.alert(
-          'Erro',
-          'Ops... Ocorreu um erro ao te cadastrar, tente novamente.',
-          [{text: 'Ok'}],
-        );
-      });
   };
 
   return (
     <Container colors={['#f27002', '#ff252e']}>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
+      <TouchableOpacity onPress={() => navigation.push('Login')}>
         <FeatherIcons name="chevron-left" color="#fff" size={46} />
       </TouchableOpacity>
       <TitleContainer>
-        <TitleText>CADASTRO</TitleText>
+        <TitleText>RECUPERAR CONTA</TitleText>
       </TitleContainer>
       <ScrollView>
         {inputs.map(input => (
@@ -123,10 +116,9 @@ const Register = ({navigation}) => {
             key={input.label}
             label={input.label}
             placeholder={input.placeholder}
-            value={input.value}
             onChange={input.onChange}
-            phoneMask={input.phoneMask}
             secureTextEntry={input.secureTextEntry}
+            value={input.value}
           />
         ))}
       </ScrollView>
@@ -137,4 +129,4 @@ const Register = ({navigation}) => {
   );
 };
 
-export default Register;
+export default ForgotPassword;
