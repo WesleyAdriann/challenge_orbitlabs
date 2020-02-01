@@ -26,7 +26,7 @@ This is app of todo
 - [ADB](https://developer.android.com/studio/command-line/adb.html)
 
 ## Usage
-Configures basic workstation with React Native Cli
+Configures basic workstation with React Native Cli  
 [React Native Getting Started](https://facebook.github.io/react-native/docs/getting-started)
 
 In the directory, install the dependencies
