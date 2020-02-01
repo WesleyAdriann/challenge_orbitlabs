@@ -27,7 +27,7 @@ This is app of todo
 
 ## Usage
 Configures basic workstation with React Native Cli  
-[React Native Getting Started](https://facebook.github.io/react-native/docs/getting-started)
+- [React Native Getting Started](https://facebook.github.io/react-native/docs/getting-started)
 
 In the directory, install the dependencies
 ```bash
