@@ -1,7 +1,12 @@
 import actionsTypes from '../../actionsTypes/auth';
 
 const INITIAL_STATE = {
-  user: {},
+  user: {
+    name: '',
+    phone: '',
+    password: '',
+    confirmPassword: '',
+  },
   users: [],
 };
 
@@ -13,6 +18,21 @@ const auth = (state = INITIAL_STATE, action) => {
         user: {
           ...state.user,
           [action.name]: action.value,
+        },
+      };
+    case actionsTypes.SETUSERS:
+      return {
+        ...state,
+        users: action.users,
+      };
+    case actionsTypes.CLEARINPUTS:
+      return {
+        ...state,
+        user: {
+          name: '',
+          phone: '',
+          password: '',
+          confirmPassword: '',
         },
       };
     default:

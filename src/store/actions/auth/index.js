@@ -10,3 +10,7 @@ export const setUsers = users => ({
   type: actionsTypes.SETUSERS,
   users,
 });
+
+export const clearInputs = () => ({
+  type: actionsTypes.CLEARINPUTS,
+});

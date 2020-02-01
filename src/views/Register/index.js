@@ -7,12 +7,13 @@ import {Container, TitleContainer, TitleText, ButtonsContainer} from './style';
 
 import Input from '../../components/Input';
 
-import {handleChange} from '../../store/actions/auth';
+import {handleChange, setUsers, clearInputs} from '../../store/actions/auth';
 import {validEmail} from '../../utils/validEmail';
 
 const Register = ({navigation}) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user);
+  const users = useSelector(state => state.auth.users);
 
   const inputs = [
     {
@@ -77,6 +78,19 @@ const Register = ({navigation}) => {
         [{text: 'Ok'}],
       );
     }
+
+    const usedEmail = users.filter(registeredUser => registeredUser.email === user.email);
+    if (usedEmail.length) {
+      return Alert.alert('Erro', 'O email informado ja esta registrado.', [
+        {text: 'Ok'},
+        {text: 'Recuperar senha'},
+      ]);
+    }
+    const newUsers = [...users];
+    newUsers.push(user);
+    dispatch(setUsers(newUsers));
+    dispatch(clearInputs());
+    Alert.alert('Sucesso', 'Você foi cadastrado com sucesso', [{text: 'Ok'}]);
   };
 
   return (
@@ -90,6 +104,7 @@ const Register = ({navigation}) => {
       <ScrollView>
         {inputs.map(input => (
           <Input
+            key={input.label}
             label={input.label}
             placeholder={input.placeholder}
             value={input.value}
