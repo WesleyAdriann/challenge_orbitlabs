@@ -1,9 +1,9 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {View, TouchableOpacity, Text} from 'react-native';
+import {View, TouchableOpacity, Text, Button} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {Container, TitleContainer, TitleText, ButtonsContainer} from './style';
+import {Container, TitleContainer, TitleText, ButtonsContainer, RegisterText} from './style';
 
 import Input from '../../components/Input';
 
@@ -13,7 +13,6 @@ const Login = ({navigation}) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user);
 
-  console.log(user);
   return (
     <Container colors={['#f27002', '#ff252e']}>
       <TouchableOpacity onPress={() => navigation.push('Home')}>
@@ -38,8 +37,10 @@ const Login = ({navigation}) => {
         />
       </View>
       <ButtonsContainer>
-        <Text>Confirmar</Text>
-        <Text>Cadastrar</Text>
+        <Button title="Confirmar" color="#D06600" />
+        <TouchableOpacity onPress={() => navigation.push('Register')}>
+          <RegisterText>ME CADASTRAR</RegisterText>
+        </TouchableOpacity>
       </ButtonsContainer>
     </Container>
   );

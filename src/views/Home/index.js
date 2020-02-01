@@ -41,12 +41,19 @@ const Home = ({navigation}) => {
       <Header />
       <CategoriesContainer horizontal showsHorizontalScrollIndicator={false}>
         {categories.map(category => (
-          <Category name={category.name} image={category.image} />
+          <Category
+            name={category.name}
+            image={category.image}
+            key={category.name}
+          />
         ))}
       </CategoriesContainer>
       <RestaurantsContainer>
         {restaurants.map(restaurant => (
-          <TouchableOpacity onPress={() => navigation.push('Login')}>
+          <TouchableOpacity
+            onPress={() => navigation.push('Login')}
+            key={restaurant.name}
+          >
             <Restaurant
               name={restaurant.name}
               image={restaurant.image}

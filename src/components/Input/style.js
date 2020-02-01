@@ -14,6 +14,13 @@ export const InputStyled = styled.TextInput`
   border-radius: 10px;
   padding-left: 16px;
   padding-right: 16px;
+  margin-bottom: 8px;
 `;
 
-export const InputStyledMask = styled(TextInputMask, InputStyled)``;
+export const InputStyledMask = styled(TextInputMask)`
+  background-color: #fff;
+  border-radius: 10px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 8px;
+`;

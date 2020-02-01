@@ -4,7 +4,16 @@ import {Dimensions} from 'react-native';
 
 const {width} = Dimensions.get('window');
 
-export const Container = styled(LinearGradient)`
+export const Background = styled(LinearGradient)`
+  width: ${width}px;
+  height: 100%;
+  padding: 15px 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
+export const Container = styled.ScrollView`
   width: ${width}px;
   height: 100%;
   padding: 15px 20px;
@@ -20,15 +29,4 @@ export const TitleText = styled.Text`
   font-size: 32px;
   color: #fff;
   font-family: 'Roboto';
-`;
-
-export const ButtonsContainer = styled.View`
-  flex-grow: 1;
-  align-items: center;
-  justify-content: flex-end;
-`;
-
-export const RegisterText = styled.Text`
-  color: #fff;
-  margin-top: 15px;
 `;
