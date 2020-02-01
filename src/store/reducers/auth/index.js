@@ -2,6 +2,7 @@ import actionsTypes from '../../actionsTypes/auth';
 
 const INITIAL_STATE = {
   user: {},
+  users: [],
 };
 
 const auth = (state = INITIAL_STATE, action) => {

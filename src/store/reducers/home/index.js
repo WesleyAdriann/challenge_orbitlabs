@@ -4,6 +4,7 @@ const INITIAL_STATE = {
   categories: [],
   restaurants: [],
   isLoading: false,
+  user: {},
 };
 
 const home = (state = INITIAL_STATE, action) => {

@@ -1,27 +1,20 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {View, TouchableOpacity, Button, ScrollView} from 'react-native';
+import {TouchableOpacity, Button, ScrollView} from 'react-native';
 import FeatherIcons from 'react-native-vector-icons/Feather';
 
-import {
-  Background,
-  Container,
-  TitleContainer,
-  TitleText,
-  ButtonsContainer,
-} from './style';
+import {Container, TitleContainer, TitleText, ButtonsContainer} from './style';
 
 import Input from '../../components/Input';
 
 import {handleChange} from '../../store/actions/auth';
 
-const Register = () => {
+const Register = ({navigation}) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.auth.user);
-
   return (
     <Container colors={['#f27002', '#ff252e']}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <FeatherIcons name="chevron-left" color="#fff" size={46} />
       </TouchableOpacity>
       <TitleContainer>

@@ -3,7 +3,10 @@ Desafio Orbitlabs
 
 ## Description
 
-This is app of todo
+This is solution for orbitlabs challenge.
+The app is for users recommend restaurants.
+
+Challenge description is located in **./docs/TesteReactNative2020.pdf**
 
 ## Hierarchy
 

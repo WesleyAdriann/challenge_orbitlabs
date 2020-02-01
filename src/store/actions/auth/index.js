@@ -5,3 +5,8 @@ export const handleChange = (name, value) => ({
   name,
   value,
 });
+
+export const setUsers = users => ({
+  type: actionsTypes.SETUSERS,
+  users,
+});
