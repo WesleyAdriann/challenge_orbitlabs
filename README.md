@@ -6,6 +6,8 @@ Desafio Orbitlabs
 This is solution for orbitlabs challenge.
 The app is for users recommend restaurants.
 
+For this solution I used multiple libraries, 
+
 Challenge description is located in **./docs/TesteReactNative2020.pdf**
 
 ## Hierarchy
@@ -53,7 +55,13 @@ Open application in android emulator.
 - [React Native](https://facebook.github.io/react-native/)
 - [React Navigation](https://reactnavigation.org)
 - [Redux](https://redux.js.org)
+- [React Redux](https://react-redux.js.org)
 - [Styled Components](https://www.styled-components.com)
+- [React Native Async Storage](https://github.com/react-native-community/async-storage)
+- [React Navigation](https://reactnavigation.org)
+- [React Native Masked Text](https://github.com/benhurott/react-native-masked-text)
+- [React Native Linear Gradient](https://github.com/react-native-community/react-native-linear-gradient)
+- [React Native Vector Icon](https://github.com/oblador/react-native-vector-icons)
 
 ## Authors
 
