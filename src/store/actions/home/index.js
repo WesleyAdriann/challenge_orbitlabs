@@ -14,3 +14,8 @@ export const handleLoading = status => ({
   type: actionsTypes.HANDLELOADINGHOME,
   status,
 });
+
+export const setUser = user => ({
+  type: actionsTypes.SETUSER,
+  user,
+});

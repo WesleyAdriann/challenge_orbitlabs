@@ -8,6 +8,7 @@ const INITIAL_STATE = {
     confirmPassword: '',
   },
   users: [],
+  isLoading: false,
 };
 
 const auth = (state = INITIAL_STATE, action) => {
@@ -34,6 +35,11 @@ const auth = (state = INITIAL_STATE, action) => {
           password: '',
           confirmPassword: '',
         },
+      };
+    case actionsTypes.HANDLELOADINGAUTH:
+      return {
+        ...state,
+        isLoading: actionsTypes.status,
       };
     default:
       return state;

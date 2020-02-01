@@ -24,6 +24,11 @@ const home = (state = INITIAL_STATE, action) => {
         ...state,
         isLoading: action.status,
       };
+    case actionsTypes.SETUSER:
+      return {
+        ...state,
+        user: action.user,
+      };
     default:
       return state;
   }

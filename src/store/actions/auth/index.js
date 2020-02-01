@@ -14,3 +14,8 @@ export const setUsers = users => ({
 export const clearInputs = () => ({
   type: actionsTypes.CLEARINPUTS,
 });
+
+export const handleLoading = status => ({
+  type: actionsTypes.HANDLELOADINGAUTH,
+  status,
+});

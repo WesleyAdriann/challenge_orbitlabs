@@ -4,7 +4,7 @@ import {View, ActivityIndicator} from 'react-native';
 import {Container, Text} from './style';
 
 const LoadingFullScreen = ({isLoading, message = ''}) => (
-  <View>
+  <>
     {isLoading ? (
       <Container>
         <ActivityIndicator size="large" color="#E69A09" />
@@ -13,7 +13,7 @@ const LoadingFullScreen = ({isLoading, message = ''}) => (
     ) : (
       <View />
     )}
-  </View>
+  </>
 );
 
 export default LoadingFullScreen;
