@@ -6,7 +6,7 @@ Desafio Orbitlabs
 This is solution for orbitlabs challenge.
 The app is for users recommend restaurants.
 
-For this solution I used multiple libraries, 
+For this solution I used multiple libraries, for the gradient was used *React Native Linear Gradient* ([links](#built-with))  
 
 Challenge description is located in **./docs/TesteReactNative2020.pdf**
 
