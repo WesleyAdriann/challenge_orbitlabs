@@ -9,6 +9,7 @@ import Input from '../../components/Input';
 
 import {handleChange, setUsers, clearInputs} from '../../store/actions/auth';
 import {validEmail} from '../../utils/validEmail';
+import {setItem} from '../../services/storage';
 
 const Register = ({navigation}) => {
   const dispatch = useDispatch();
@@ -88,9 +89,21 @@ const Register = ({navigation}) => {
     }
     const newUsers = [...users];
     newUsers.push(user);
-    dispatch(setUsers(newUsers));
-    dispatch(clearInputs());
-    Alert.alert('Sucesso', 'Você foi cadastrado com sucesso', [{text: 'Ok'}]);
+    setItem('users', newUsers)
+      .then(() => {
+        dispatch(setUsers(newUsers));
+        dispatch(clearInputs());
+        Alert.alert('Sucesso', 'Você foi cadastrado com sucesso.', [
+          {text: 'Ok'},
+        ]);
+      })
+      .catch(() => {
+        Alert.alert(
+          'Erro',
+          'Ops... Ocorreu um erro ao te cadastrar, tente novamente.',
+          [{text: 'Ok'}],
+        );
+      });
   };
 
   return (
