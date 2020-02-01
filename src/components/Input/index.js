@@ -8,6 +8,7 @@ const Input = ({label, onChange, placeholder, value, secureTextEntry = false, ph
     <Label>{label}</Label>
     {phoneMask ? (
       <InputStyledMask
+        placeholder={placeholder}
         type={'cel-phone'}
         options={{
           maskType: 'BRL',
