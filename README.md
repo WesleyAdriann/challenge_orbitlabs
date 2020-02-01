@@ -6,7 +6,10 @@ Desafio Orbitlabs
 This is solution for orbitlabs challenge.
 The app is for users recommend restaurants.
 
-For this solution I used multiple libraries, for the gradient was used *React Native Linear Gradient* ([links](#built-with))  
+In this solution was created using flux archutecture with [Redux](#built-with), and I used multiple libraries like [React Navigation](#built-with) for screen navigation, [styled components](#built-with) to create style and more more.
+
+The application contains four screens, [Home](./src/views/home/index.js) where a fake order is placed with a promise of 1.5 seconds, as requested in the [documentation](./docs/TesteReactNative2020.pdf), and shows food categories and restaurant recommendations where, after clicking on the restaurant, press the screen [Login](./src/views/login/index.js). In screens [Login](./src/views/login/index.js), [Register](./src/views/register/index.js) and [Forgot Password](./src/views/forgotpassword/index.js) I used react native async storage for read and write users.To login is validated if all inputs are empty and email and password was valid and read phone storage if user exists and valid if password is correct, and redirect to Home, Register or Forgot Password. In the register empty inputs also is validated
+
 
 Challenge description is located in **./docs/TesteReactNative2020.pdf**
 
@@ -18,6 +21,7 @@ Challenge description is located in **./docs/TesteReactNative2020.pdf**
 - **/src** directory where the develop files is located;
   - **/assets** directory where static files like fonts and images is located;
   - **/components** directory where react components is located;
+  - **/config** directory where project configuration is located;
   - **/services** directory where the files related to services used in the application will be created, for example HTTP requests;
   - **/store** directory where Redux files is located;
   - **/views** directory where de pages is located.
@@ -66,10 +70,6 @@ Open application in android emulator.
 ## Authors
 
 - [Wesley Adriann](https://github.com/WesleyAdriann/)
-
-## Project Status
-
-- **development**
 
 ## URL Project Reference
 
