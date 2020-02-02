@@ -3,12 +3,12 @@ Desafio Orbitlabs
 
 ## Description
 
-This is solution for orbitlabs challenge.
-The app is for users recommend restaurants.
+This is a solution to the orbitlabs challenge. The app is for users to recommend restaurants.
 
-In this solution was created using flux archutecture with [Redux](#built-with), and I used multiple libraries like [React Navigation](#built-with) for screen navigation, [styled components](#built-with) to create style and more more.
+This solution was created using the flux architecture with [Redux](#built-with), and I've used multiple libraries like [React Navigation](#built-with) for screen navigation, [styled components](#built-with) to create style and more.
 
-The application contains four screens, [Home](./src/views/Home/index.js) where a fake order is placed with a promise of 1.5 seconds, as requested in the [documentation](./docs/TesteReactNative2020.pdf), and shows food categories and restaurant recommendations where, after clicking on the restaurant, press the screen [Login](./src/views/login/index.js). In screens [Login](./src/views/Login/index.js), [Register](./src/views/Register/index.js) and [Forgot Password](./src/views/ForgotPassword/index.js) I used react native async storage for read and write users. To login is validated if all inputs are empty and email and password was valid and read phone storage if user exists and valid if password is correct, and redirect to Home, Register or Forgot Password. In the [register](./src/views/Register/index.js) empty inputs also is validated and is evaluated all entries follow the rules, like numbers in name, phone length and others, after user click in 'confirmar" the user data is save in phone storate to use in login or forgot password. And in [forgot password](./src/views/ForgotPassword/index.js) is used email to register new password to user.
+The application contains four screens, [Home](./src/views/Home/index.js) where a fake order is placed with a promise of 1.5 seconds, as requested in the [documentation](./docs/TesteReactNative2020.pdf), and shows food categories and restaurant recommendations where, after clicking on the restaurant, press the screen [Login](./src/views/login/index.js). In screens [Login](./src/views/Login/index.js), [Register](./src/views/Register/index.js) and [Forgot Password](./src/views/ForgotPassword/index.js). I used react native async storage for reading and write users. To login is validated if all inputs are empty and email and password was valid and read phone storage if the user exists and valid if the password is correct, and redirect to Home, Register or Forgot Password. In the [register](./src/views/Register/index.js), empty inputs also are validated and are evaluated all entries follow the rules, like numbers in the name, phone length and others, after user click in 'confirmar" the user data is save in phone storage to use in login or forgot password. And in [forgot password](./src/views/ForgotPassword/index.js) is used email to register a new password to the user.
+
 
 Challenge description is located in **./docs/TesteReactNative2020.pdf**
 
