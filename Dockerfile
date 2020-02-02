@@ -3,16 +3,18 @@ FROM openjdk:8-slim
 
 RUN apt update
 
+RUN apt-get update
+
 RUN apt install curl -y
 
 RUN apt-get install unzip -y
 
-ARG sdk_version=sdk-tools-linux-4333796.zip
 ARG android_home=/opt/android/sdk
+ARG sdk_version=sdk-tools-linux-4333796.zip
 
 RUN mkdir -p ${android_home}
 
-RUN curl https://dl.google.com/android/repository/${sdk_version}} -L -o sdk-tools.zip
+RUN curl https://dl.google.com/android/repository/${sdk_version} -L -o sdk-tools.zip
 
 RUN unzip sdk-tools.zip -d ${android_home}
 
