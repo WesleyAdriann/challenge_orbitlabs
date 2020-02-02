@@ -11,5 +11,5 @@ export const imagesRestaurants = {
   'img/abbraccio.png': require('../assets/images/abbraccio.png'),
   'img/gero.png': require('../assets/images/gero.png'),
   'img/pobre_juan.png': require('../assets/images/pobre_juan.png'),
-  'img/divinofogão.png': require('../assets/images/divinofogâo.png'),
+  'img/divinofogão.png': require('../assets/images/divinofogao.png'),
 };

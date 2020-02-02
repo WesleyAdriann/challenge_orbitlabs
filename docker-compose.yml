@@ -3,4 +3,4 @@ services:
   android_build:
     build: .
     volumes:
-      - './build/:/app/android/app/build/outputs/apk'
+      - './build/:/app/android/app/build/outputs/apk/'
