@@ -1,4 +1,3 @@
-# FROM ubuntu:18.04
 FROM openjdk:8-slim
 
 RUN apt update
