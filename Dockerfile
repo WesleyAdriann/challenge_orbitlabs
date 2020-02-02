@@ -7,22 +7,17 @@ RUN apt install curl -y
 
 RUN apt-get install unzip -y
 
-# RUN apt-get install openjdk-8-jdk -y
-
-RUN java -version
-
+ARG sdk_version=sdk-tools-linux-4333796.zip
 ARG android_home=/opt/android/sdk
 
 RUN mkdir -p ${android_home}
 
-RUN curl https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip -L -o sdk-tools.zip
+RUN curl https://dl.google.com/android/repository/${sdk_version}} -L -o sdk-tools.zip
 
 RUN unzip sdk-tools.zip -d ${android_home}
 
 ENV ANDROID_HOME ${android_home}
 ENV PATH=${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${PATH}
-
-# RUN mkdir ~/.android && echo '### User Sources for Android SDK Manager' > ~/.android/repositories.cfg
 
 RUN yes | sdkmanager --licenses && yes | sdkmanager --update
 
