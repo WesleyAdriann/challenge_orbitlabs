@@ -96,7 +96,7 @@ docker-compose up --build
 
 ## URL Project Reference
 
-- [https://github.com/WesleyAdriann/desafio_orbitlabs](https://github.com/WesleyAdriann/desafio_orbitlabs)
+- [https://github.com/WesleyAdriann/challenge_orbitlab](https://github.com/WesleyAdriann/challenge_orbitlab)
 
 ## Observation
 
